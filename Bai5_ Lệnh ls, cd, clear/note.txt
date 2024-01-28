@@ -1,0 +1,19 @@
+Link document : https://www.hostinger.com/tutorials/linux-commands
+
+1. ls (list)
+->  Xem tất cả các thư mục ở URL hiện tại
+    ls -l : list         - show detail, các file không ẩn 
+    ls -a : all          - hiện tất cả file ẩn - file có dấu . ở trước là file ẩn
+    ls -R : recursively  - hiện cả các thư mục, file con
+
+2. cd (change directory)
+-> Thay đổi đường dẫn 
+   Example : 
+    cd /  => ra root
+    cd    => vào account hiện tại 
+
+3. clear (xoá đi các nội dung đang hiển thị trên ternial)
+
+
+
+
