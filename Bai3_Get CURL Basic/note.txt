@@ -1,0 +1,10 @@
+
+1. Get CURL cơ bản 
+-> curl -X GET "https://www.codever.dev/api/version" -H "accept: application/json"
+
+2. Check xem domain có DNS hay không?
+-> nslookup domain.com (name system lookup)
+(Nếu domain không có DNS, bạn có thể thấy thông báo lỗi như "Non-existent domain" hoặc "Server failed".)
+
+
+3. ping domain.com
