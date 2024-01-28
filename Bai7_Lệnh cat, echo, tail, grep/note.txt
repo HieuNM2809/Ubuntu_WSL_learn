@@ -1,0 +1,23 @@
+
+Link document : https://www.hostinger.com/tutorials/linux-commands  
+
+
+1. Cat : concat
+-> Xem nội dung của file và ghép nội dung
+    cat file.txt                                      : Show nội dung file
+    cat file1.html file2.html > concatFile1File2.html : Nối file1 + file2 và tạo ra file mới
+
+2. echo 
+-> Xuất ra text cmd
+    echo "<h2>hello</h2> >   fileName.html : tạo một file với nội dung, nếu chạy lại nó sẽ ghi đè
+    echo "<h2>hello</h2> >>  fileName.html : tạo một file với nội dung, nếu chạy lại nó ghi thêm và
+
+3. tail : cuối
+-> lấy các dòng cuối của file
+    tail logs.json      : mặc định lấy 10 dòng cuối
+    tail -n 5 logs.json : lấy 5 dòng cuối
+    tail -f   logs.json : follow sự thay đổi file
+
+4. grep
+-> Kiểm tra file có kí tự
+    cat file.txt | grep haha   => tìm haha trong  file.txt

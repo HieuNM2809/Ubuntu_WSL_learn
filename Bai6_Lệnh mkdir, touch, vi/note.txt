@@ -1,4 +1,6 @@
 
+    Link document : https://www.hostinger.com/tutorials/linux-commands
+
 1. mkdir (make directory) : tạo một thư mục mới
    -p : parents - ví dụ: mkdir -p /thu_muc_cha/thu_muc_con -> tạo ra tất cả nếu thư mục chưa tồn tại
 
