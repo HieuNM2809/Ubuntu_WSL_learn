@@ -8,3 +8,6 @@
 
 
 3. ping domain.com
+
+4. Show path Ubuntu in Windows/ xem đường dẫn Ubuntu trên Windows
+-> explorer.exe .

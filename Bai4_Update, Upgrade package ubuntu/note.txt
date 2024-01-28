@@ -1,0 +1,20 @@
+
+Link doc: https://hocdevops.com/os/lenh-sudo-apt-get-update-va-upgrade-co-chuc-nang-gi-tren-ubuntu-debian/
+
+
+1. sudo apt update 
+-> Update các package hiện tại
+
+2. sudo apt upgrade 
+-> Nâng cấp các package hiện tại lên bản mớt nhất 
+
+Các nguồn thường được xác định trong tệp /etc/apt/sources.list và các tệp khác nằm trong thư mục /etc/apt/sources.list.d/.
+
+3. Xem các thông tin package URL
+-> cat /etc/apt/sources.list
+
+
+LƯU Ý : Chạy update trước khi upgrate: 
+
+Chạy 2 lệnh liên tục : sudo apt-get update && sudo apt-get upgrade
+Chạy nhiều lệnh      : sudo sh -c 'apt update && apt upgrade'
