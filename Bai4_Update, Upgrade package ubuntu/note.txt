@@ -14,7 +14,7 @@ Các nguồn thường được xác định trong tệp /etc/apt/sources.list v
 -> cat /etc/apt/sources.list
 
 
-LƯU Ý : Chạy update trước khi upgrate: 
+LƯU Ý : Chạy update trước khi upgrade: 
 
 Chạy 2 lệnh liên tục : sudo apt-get update && sudo apt-get upgrade
 Chạy nhiều lệnh      : sudo sh -c 'apt update && apt upgrade'
