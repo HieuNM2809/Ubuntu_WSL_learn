@@ -1,0 +1,15 @@
+
+1. mkdir (make directory) : tạo một thư mục mới
+   -p : parents - ví dụ: mkdir -p /thu_muc_cha/thu_muc_con -> tạo ra tất cả nếu thư mục chưa tồn tại
+
+2.0. touch : tạo ra một file 
+
+2.1. rm    : xoá file
+
+3. Vi - Vim ( Trình soạn thảo Vim mặc định trên Linux)
+   :q     => Thoát Vim
+   i      => Vào chế độ Insert Mode
+   Esc    => Thoát 
+   :q!    => Thoát Vim, không lưu thay đổi
+   :w     => Thoát Vim, lưu file và thay đổi
+   :wq    => Vừa lưu và thoát 
