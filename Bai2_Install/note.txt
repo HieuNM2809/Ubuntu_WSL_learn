@@ -1,0 +1,8 @@
+Link document: https://learn.microsoft.com/en-us/windows/wsl/install
+
+1. Mở cmd chạy lệnh : wsl --install
+2. Khởi động lại máy và Login username, password 
+3. Mở WSL : Open cmd or termial -> wsl
+
+
+
