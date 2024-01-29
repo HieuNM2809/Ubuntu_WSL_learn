@@ -1,0 +1,29 @@
+
+Link document : https://www.hostinger.com/tutorials/linux-commands  
+34 lệnh Linux cơ bản: https://www.hostinger.com/tutorials/linux-commands
+Các lệnh làm việc với người dùng/nhóm trong Ubuntu: https://linuxapt.com/blog/161-find-out-which-groups-a-user-belongs-to-in-ubuntu-20-04
+Link video tutorial: https://fullstack.edu.vn/learning/windows-terminal-wsl?id=d31b1650-0809-4c51-b3d6-99a66494622a
+
+1. sudo  : SuperUser Do 
+-> sử dụng quyền cao nhất
+   sudo <Cú pháp>
+
+2. chmod : Change mode 
+-> Thay đổi quyền hạn của file
+    sudo chmod u=rw,g=r,o=rwx a.html
+        u=rw: Thiết lập quyền cho người dùng là đọc (read) và ghi (write).
+        g=r: Thiết lập quyền cho nhóm là đọc (read).
+        o=rwx: Thiết lập quyền cho người dùng khác là đọc, ghi và thực thi (full quyền).
+    sudo chmod 777 index.html
+        777: Là cách biểu diễn quyền truy cập dưới dạng octal. 
+        Trong trường hợp này, 777 có nghĩa là cấp quyền đọc, ghi, 
+        và thực thi cho tất cả mọi người, bao gồm cả chủ sở hữu, nhóm người dùng, và người dùng khác.
+
+3. chown: change owner
+-> Thay đổi chủ sử hữu
+   sudo chown root file.txt       : chuyển chủ sở hữu root cho file.txt
+   sudo chown root:group file.txt : chuyển chủ sở hữu root và group cho file.txt
+
+
+
+   
