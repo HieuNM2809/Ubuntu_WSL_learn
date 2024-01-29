@@ -1,2 +1,3 @@
 Lưu ý:
  1. Nên dùng termial thay vì cmd, GitBash,...
+ 2. "sudo" là viết tắt của "superuser do"

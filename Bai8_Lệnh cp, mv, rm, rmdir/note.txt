@@ -1,0 +1,25 @@
+
+Link document : https://www.hostinger.com/tutorials/linux-commands  
+
+
+1. cp : coppy
+-> Coppy file và thư mục
+   cp file.html file-new.html : coppy file ra file mới
+   cp file.html folder-new/   : coppy file vào folder
+   cp -r folder/ folder-new/  : coppy folder và file
+
+2. mv : move
+-> Di chuyển file, thư mục
+   mv file.html file-new.html : di chuyển file ra file mới và đổi tên
+   mv file.html folder-new/   : di chuyển file vào folder
+   mv -r folder/ folder-new/  : di chuyển folder và file
+
+3. rm : remove
+-> Xoá file
+   rm file.html               : xoá file 
+   rm -r folder/              : recursive - xoá file và thư mục
+
+4. rmdir : remove directory
+-> Xoá thư mục trống
+   rmdir folder/              : xoá thư mục trống
+
