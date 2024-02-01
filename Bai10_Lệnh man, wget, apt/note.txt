@@ -1,0 +1,24 @@
+
+Link document : https://www.hostinger.com/tutorials/linux-commands  
+
+
+1. man : Manual
+-> Miêu tả các lệnh khác
+   man ls : miêu tả lệnh ls
+
+2. wget : World Wide Web get | Web get
+-> Dùng để download file trên mạng về
+   wget https://i0.wp.com/dictionaryblog.cambridge.org/wp-content/uploads/2024/01/watching_the_world.jpg
+
+3. apt  : Advanced Package Tool
+-> Cài các thư viện ở ngoài vào linux
+   sudo apt install nodejs     : cài nodejs
+   sudo apt install nodejs -y  : cài nodejs và ko hỏi gì
+
+
+
+
+
+
+
+
