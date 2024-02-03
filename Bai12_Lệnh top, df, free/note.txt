@@ -1,0 +1,20 @@
+
+Link document : https://www.hostinger.com/tutorials/linux-commands  
+
+1. ps : process hiện 1 lần   // top, htop: giống Task Manager cập nhật liên tục, htop có giao diện
+-> Hiện tất cả tiến trình đang chạy
+   ps -a 
+   ps aux : show all 
+   top
+   htop
+
+2. df : disk free
+-> Hiện thị thông tin ổ cứng
+   df -h :  --human-readable : hiện thông tin ổ cứng, -h để dễ đọc
+
+2. free : thông tin RAM
+-> Hiện thị thông tin RAM
+   free -h :  --human-readable : hiện thông tin RAM, -h để dễ đọc
+
+
+

@@ -1,12 +1,12 @@
 
 Link document : https://www.hostinger.com/tutorials/linux-commands  
 
-1. ps : process
+1. ps : process hiện 1 lần   // top : giống Task Manager cập nhật liên tục
 -> Hiện tất cả tiến trình đang chạy
    ps -a 
    ps aux : show all 
 
-2. kill : Xoá 1 tiến trình ( giống task manager trong window)
+2. kill : Xoá 1 tiến trình ( giống tắt trong task manager trong window)
 -> Xoá 1 tiến trình 
     kill 1233    : xoá 1 tiến trình có id là 1233, mặc định là kill 15 ( save và xoá)
     kill -9 1233 : xoá 1 tiến trình có id là 1233, mặc định là kill 9 ( xoá ngay lập tức)
