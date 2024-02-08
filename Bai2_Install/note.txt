@@ -6,3 +6,6 @@ Link document: https://learn.microsoft.com/en-us/windows/wsl/install
 
 
 
+Lưu ý : 
+ + nếu muốn trở về WSL 1 thì : wsl --set-version Ubuntu 1
+ + wsl --status              : check xem đã đặt Window Subsystem for lunix chưa ?

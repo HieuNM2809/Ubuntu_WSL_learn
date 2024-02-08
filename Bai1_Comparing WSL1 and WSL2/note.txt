@@ -3,3 +3,6 @@ Link conparing : https://learn.microsoft.com/en-us/windows/wsl/compare-versions
 Bổ sung và đính chính lại, hiện tại WSL 1 và WSL 2 chỉ được hỗ trợ trên Windows 10 64-bit và Windows Server 2019 (không hỗ trợ Windows 32-bit)
 - Để sử dụng được WSL 1 bạn cần sử dụng Windows version 1607 trở lên
 - Để sử dụng được WSL 2 bạn cần sử dụng Windows version 2004 trở lên
+
+
+=> Nên dùng WSL 1 vì nó nhanh hơn WSL 2
