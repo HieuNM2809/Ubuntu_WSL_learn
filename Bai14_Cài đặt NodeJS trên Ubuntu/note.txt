@@ -1,0 +1,21 @@
+
+Link document : https://www.hostinger.com/tutorials/linux-commands  
+Link document instal nodejs: https://www.hostinger.com/tutorials/how-to-install-node-ubuntu?ppc_campaign=google_search_generic_hosting_all&bidkw=defaultkeyword&lo=9040323&gad_source=1&gclid=CjwKCAiA8YyuBhBSEiwA5R3-E55jaQo6ltwhVPQ9IQY-sCNti6CM-E78ehtFtYC6dfmgcbIU-i8iIhoCEW4QAvD_BwE 
+
+
+- 1. How to Install Node.js With Apt Using NodeSource
+    + 1.1 :  sudo apt-get update
+    + 1.2 : sudo apt-get upgrade
+    + 1.3 : sudo apt-get install curl
+    + 1.4 : curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+    + 1.5 : sudo apt-get install nodejs
+
+- 2. How to Install a Specific Version of Node.js Using NVM
+    + 2.1 : sudo apt-get install wget
+    + 2.2 : wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.39.0/install.sh | bash
+    + 2.3 : source ~/.profile
+    + 2.4 : nvm ls-remote
+    + 2.5 : nvm install 20.11.0
+    + 2.6 : node -v
+
+
