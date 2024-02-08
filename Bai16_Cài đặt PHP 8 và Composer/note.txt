@@ -1,0 +1,14 @@
+ 
+  Link document: https://www.digitalocean.com/community/tutorials/how-to-install-php-8-1-and-set-up-a-local-development-environment-on-ubuntu-22-04
+                 https://tecadmin.net/how-to-install-php-8-on-ubuntu-20-04/
+
+- Thêm PHP : 
+ 1. sudo apt install --no-install-recommends php8.1
+ 2. php -v
+ 3. sudo apt-get install -y php8.1-cli php8.1-common php8.1-mysql php8.1-zip php8.1-gd php8.1-mbstring php8.1-curl php8.1-xml php8.1-bcmath
+ 4. php -m
+
+
+- Thêm composer :
+  1. curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
+  2. sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
