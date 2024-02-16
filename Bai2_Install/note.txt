@@ -9,3 +9,11 @@ Link document: https://learn.microsoft.com/en-us/windows/wsl/install
 Lưu ý : 
  + nếu muốn trở về WSL 1 thì : wsl --set-version Ubuntu 1
  + wsl --status              : check xem đã đặt Window Subsystem for lunix chưa ?
+
+
+==== Cài network công ty
+Link video : https://www.youtube.com/watch?v=R_QW9MmrdSU
+Ubuntu 20.04: https://aka.ms/wslubuntu2004
+Ubuntu 18.04: https://aka.ms/wsl-ubuntu-1604
+openSUSE Lead 15.2: https://aka.ms/wsl-opensuseleap15-2
+Debian: https://aka.ms/wsl-debian-gnulinux
