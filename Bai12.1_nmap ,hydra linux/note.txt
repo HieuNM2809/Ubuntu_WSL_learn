@@ -1,0 +1,17 @@
+Link: https://kb.pavietnam.vn/huong-dan-cai-dat-va-su-dung-nmap-tren-linux.html
+      https://www.geeksforgeeks.org/nmap-command-in-linux-with-examples/
+
+
+
+1. Nmap  : Network Mapper (Nmap) là một công cụ quét an ninh mạng mã nguồn mở, miễn phí. Bằng cách gửi các gói IP và phân tích các phản hồi,
+           Nmap có thể khám phá thông tin về máy chủ và dịch vụ trên mạng máy tính từ xa
+
+1.1: Quét thông tin port, ....
+
+   sudo apt-get install nmap  : cài đặt 
+   nmap [Options] [Target...] : hướng dẫn
+   nmap 18.141.244.39         : scan domain .39
+
+
+
+
