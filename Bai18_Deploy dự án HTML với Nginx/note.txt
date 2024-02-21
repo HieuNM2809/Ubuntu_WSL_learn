@@ -1,0 +1,88 @@
+
+Link doc: https://phoenixnap.com/kb/install-nginx-ubuntu-22-04
+
+1. Cài nginx
+   sudo apt install nginx
+
+2. Điều chỉnh tường lửa
+   sudo ufw app list  : hiện danh sách 
+
+3. Chấp nhận http
+   sudo ufw allow 'Nginx HTTP'
+
+4. Xem đã đổi thành công chưa
+   sudo ufw status
+
+5. Check nginx status
+   sudo systemctl status nginx
+
+6. Tạo thư mục 
+   sudo mkdir -p /var/www/tiktok/html
+
+7. Phân quyền chỉ sử hữu cho user đang login
+   sudo chown -R $USER:$USER /var/www/tiktok/html
+
+8. Thêm quyền user full quyền, còn lại group và order thì đọc và thực hiện
+   sudo chmod 755 /var/www/tiktok
+
+9. Tạo file html
+   sudo vim /var/www/tiktok/html/index.html ( thêm html css vào )
+
+10. Thêm config cho domain
+   sudo vim /etc/nginx/sites-enabled/tiktok 
+   ( thêm
+        server {
+            listen 80;
+            listen [::]:80;
+
+            root /var/www/tiktok/html;
+            index index.html index.htm index.nginx-debian.html;
+
+            server_name 14.225.192.68;
+
+            location / {
+                try_files $uri $uri/ =404;
+            }
+        }
+   )
+
+11. Xác thực lại cấu hình 
+   sudo nginx -t
+
+12. restart lại server
+   sudo systemctl restart nginx
+
+   
+
+
+
+
+
+
+------------------------------------------------------
+Manage Nginx Process on Ubuntu
+With the web server operational, users can run various commands to manage the Nginx process. Note that none of the following commands provide any output. Here are some examples:
+
+1. To stop the web server, enter:
+
+sudo systemctl stop nginx
+
+2. When the server is not active, start it with:
+
+sudo systemctl start nginx
+
+3. To stop and then start the service again, execute:
+
+sudo systemctl restart nginx
+
+4. When making changes to the Nginx web server configuration, such as modifying settings in its configuration files, users often must apply those changes to the running instance of Nginx. Reloading Nginx allows users to do this without disrupting active connections to the server. To accomplish that, run the following:
+
+sudo systemctl reload nginx
+
+5. By default, Nginx starts automatically during server boot. To deactivate this behavior, run:
+
+sudo systemctl disable nginx
+
+6. To enable the service for automatic startup upon boot, execute:
+
+sudo systemctl enable nginx
