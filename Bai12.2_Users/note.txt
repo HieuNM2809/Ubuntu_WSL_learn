@@ -1,0 +1,15 @@
+
+1. Thêm Users mới 
+   1.1/ sudo adduser username
+   1.2/ su - root                   : Switch user sang root 
+   1.3/ sudo EDITOR=vim visudo      : mở file config bằng editor VIM
+   1.4/ usernew   ALL=(ALL:ALL) ALL : Khai báo vào file users mới
+
+2. Login Users mới (Switch User)
+   su - new_username : switch user
+
+3. Xoá Users
+   sudo deluser username
+
+4. Get list Users
+   cut -d: -f1 /etc/passwd
