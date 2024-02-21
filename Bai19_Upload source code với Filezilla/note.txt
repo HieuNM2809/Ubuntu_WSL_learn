@@ -1,0 +1,5 @@
+Upload source code với Filezilla
+  + https://www.youtube.com/watch?v=fvs_wjEd0Ks
+
+
+Hoặc git clone
