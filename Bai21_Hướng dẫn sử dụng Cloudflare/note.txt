@@ -1,0 +1,20 @@
+
+Link video: https://www.youtube.com/watch?v=DqhSe3HcDTU
+
+1. Cloudflare
+-> Để quản trị record, domain, subdomain,..
+  + Chống DDOS 
+  + TSL (SSL) free
+
+2. Đăng ký 
+
+3. Nhập domain
+
+4. Chọn gói free
+
+5. Đổi NS ( Name server) domain cũ sang Cloudflare ( xoá bỏ record cũ)
+   michael.ns.cloudflare.com
+   nataly.ns.cloudflare.com
+
+6. Check xem đã apply 
+  https://www.dnswatch.info/
