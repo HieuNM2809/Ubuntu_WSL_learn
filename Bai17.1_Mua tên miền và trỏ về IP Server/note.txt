@@ -1,0 +1,10 @@
+
+Link video: https://www.youtube.com/watch?v=7RjjF8Ee7Ws
+
+1. Mua tên miền
+
+2. Thiết lập DNS
+    @ : là chính tên miền
+    A : Chọn loại bản ghi
+    
+3. ping xem oke chưa
