@@ -1,4 +1,42 @@
 Link video: https://www.youtube.com/watch?v=d7kZJhvmuaU
 
-+ Mua domain rồi trỏ về port khác
+Nếu có domain : 
++ Tạo domain
++ * : tương ứng tất cả subdomain
++ SubDomain nên dùng CNAME để đỡ sửa nhiều ip 
+
+
+
+Nếu không có domain:
++ Có thể trỏ về port khác để sử dụng >= 2 web
 + Có thể config nhiều web và vào nhiều port khác nhau
+
+
+
+VD: 
+server {
+    listen 80;
+    listen [::]:80;
+    root /var/www/tiktok/html;
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name tiktok.hieunm.site;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+
+server {
+    listen 80;
+    listen [::]:80;
+
+    root /var/www/hieunm47/HieuNM47.github.io;
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name hieunm.site;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
