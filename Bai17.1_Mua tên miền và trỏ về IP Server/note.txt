@@ -8,3 +8,6 @@ Link video: https://www.youtube.com/watch?v=7RjjF8Ee7Ws
     A : Chọn loại bản ghi
     
 3. ping xem oke chưa
+
+
+Lưu ý: nếu có subdomain thì nên để là CNAME( để đỡ phải sửa nhiều chỗ thay vì ip)
