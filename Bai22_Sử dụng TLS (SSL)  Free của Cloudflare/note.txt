@@ -1,0 +1,7 @@
+Link video: https://www.youtube.com/watch?v=Q_I28ieWJMQ
+
+1. Vào cloudflare
+
+2. Vào Tab SSL
+ + Bật mode Flexible
+ + Bật Always Use HTTPS
