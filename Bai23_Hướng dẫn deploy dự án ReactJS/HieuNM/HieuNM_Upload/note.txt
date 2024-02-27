@@ -1,0 +1,28 @@
+Link doc: https://www.digitalocean.com/community/tutorials/how-to-deploy-a-react-application-with-nginx-on-ubuntu-20-04
+
+1. Tạo project 
+   -> npx create-react-app react-deploy
+2. Buld 
+  -> npm run build
+
+3. ssh lên server 
+  -> ssh username@server_ip
+
+4. cat /etc/nginx/sites-enabled/your_domain
+
+server {
+    listen 80;
+    listen [::]:80;
+
+    root /var/www/reactdemo;
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name reactdemo.hieunm.site;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+
+5. upload file build 
+  scp -r ./build/* username@server_ip:/var/www/your_domain/html
