@@ -1,0 +1,49 @@
+
+Link video: https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-22-04
+
+
+1. Update Ubuntu 
+   -> sudo apt update
+
+2. Cài gói mysql-server
+   -> sudo apt install mysql-server
+
+3. Start mysql.service
+   -> sudo systemctl start mysql.service
+
+3. Mở MySQL 
+   -> sudo mysql
+   -> SHOW DATABASES;
+
+4. Đặt lại password cho tài khoản gốc MySQL
+   -> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+
+5. Chạy tiếp 
+   -> exit
+   -> sudo mysql_secure_installation
+
+6. Connect lại database 
+   -> mysql -u root -p   -> Nhập pass: password 
+
+
+7. Tạo người dùng
+    CREATE USER 'username'@'host' IDENTIFIED WITH authentication_plugin BY 'password';
+ or CREATE USER 'hieunm'@'localhost' IDENTIFIED BY 'ABCabc@123456';
+ or CREATE USER 'sammy'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+ or ALTER USER 'sammy'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+
+
+8. Gán quyền 
+   GRANT PRIVILEGE ON database.table TO 'username'@'host';
+   GRANT CREATE, ALTER, DROP, INSERT, UPDATE, INDEX, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'sammy'@'localhost' WITH GRANT OPTION;
+   GRANT ALL PRIVILEGES ON *.* TO 'sammy'@'localhost' WITH GRANT OPTION;
+
+9 [TUỲ CHỌN] Xoá các config user, phần quyền trước đó 
+   -> FLUSH PRIVILEGES;
+
+10. check status mysql 
+   -> systemctl status mysql.service
+   -> sudo systemctl start mysql     : run lại mysql
+
+11. show các thông tin về acc 
+   -> sudo mysqladmin -p -u <user của mình> version
