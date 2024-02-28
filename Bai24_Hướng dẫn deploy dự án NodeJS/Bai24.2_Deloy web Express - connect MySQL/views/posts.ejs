@@ -1,0 +1,36 @@
+<!-- posts.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posts</title>
+  <style>
+    /* Thêm CSS cho giao diện */
+    /* Ví dụ: */
+    .post {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    .post h2 {
+      margin-top: 0;
+    }
+    .post p {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Posts</h1>
+  <div id="posts">
+    <% posts.forEach(post => { %>
+      <div class="post">
+        <h2><%= post.title %></h2>
+        <p><%= post.content %></p>
+      </div>
+    <% }); %>
+  </div>
+</body>
+</html>

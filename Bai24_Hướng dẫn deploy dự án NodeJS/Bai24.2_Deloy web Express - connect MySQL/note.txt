@@ -1,0 +1,67 @@
+Link video: 
++ https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-22-04
++ https://blog.logrocket.com/how-to-run-a-node-js-server-with-nginx/
+
+
+1. Tạo project
+  -> sudo mkdir nodedemo2             : tạo thư mục
+  -> sudo chmod 777 nodedemo2         : phân full quyền 
+  -> sudo chown $USER:$USER nodedemo2 : thay đổi chủ sử hữu
+  -> cd nodedemo2                     : di chuyển vào thư mục
+
+2. Tạo code và upcode lên server
+
+3. Check status 
+   -> node main.js
+
+4. Cài đặt PM2
+   -> sudo npm install pm2@latest -g
+
+5. start project lên 
+   -> pm2 start hello.js
+
+6. Thực hiện restart khi ứng dụng tắt
+   -> pm2 startup systemd
+   -> sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u <USER của mình> --hp /home/<USER của mình>
+   -> pm2 save
+
+7. Bây giờ bạn đã tạo một đơn vị systemd chạy pm2cho người dùng của bạn khi khởi động. pm2Lần lượt, trường hợp này chạy hello.js.
+    sudo systemctl start pm2-<USER của mình>
+    systemctl status pm2-<USER của mình>
+
+8. Thiết lập nginx
+   -> sudo nano /etc/nginx/sites-available/example.com
+    server {
+        server_name nodedemo2.hieunm.site;
+        location / {
+            proxy_pass http://localhost:3001;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection 'upgrade';
+            proxy_set_header Host $host;
+            proxy_cache_bypass $http_upgrade;
+        }
+    }
+9. verify và restart nginx
+    sudo nginx -t
+    sudo systemctl restart nginx
+
+
+
+
+---------------------------------------------------------------
+
+Dừng ứng dụng bằng lệnh này (chỉ định PM2 App namehoặc id):
+pm2 stop app_name_or_id
+
+Khởi động lại một ứng dụng:
+pm2 restart app_name_or_id
+
+Liệt kê các ứng dụng hiện do PM2 quản lý:
+pm2 list
+
+Nhận thông tin về một ứng dụng cụ thể bằng cách sử dụng App name:
+pm2 info app_name
+
+Trình giám sát quá trình PM2 có thể được kéo lên bằng monitlệnh phụ. Điều này hiển thị trạng thái ứng dụng, CPU và mức sử dụng bộ nhớ:
+pm2 monit
