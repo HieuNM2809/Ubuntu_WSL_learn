@@ -22,6 +22,7 @@ Yều cầu: đã cài nginx và mysql
 server {
     listen 80;
     listen [::]:80;
+    server_name adminer.your_domain.com; # Đổi your_domain.com thành tên miền của bạn hoặc IP
 
     root /var/www/adminer;
     index adminer.php;
