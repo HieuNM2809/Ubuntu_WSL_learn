@@ -1,0 +1,47 @@
+
+Trang chủ adminer : https://www.adminer.org/en/
+
+
+
+Yều cầu: đã cài nginx và mysql
+
+
+1. Tạo thư mục lưu file 
+  ->sudo mkdir /var/www/adminer/
+
+2. Sử dụng lệnh wget để tải xuống tệp Adminer từ trang web chính thức. Ví dụ, để tải xuống Adminer phiên bản mới nhất:
+   -> wget -O adminer.php https://www.adminer.org/latest.php
+
+3. Nếu bạn muốn tải xuống một phiên bản cụ thể, bạn có thể thay đổi URL tương ứng. Ví dụ, để tải xuống Adminer phiên bản 4.8.1:
+   -> wget -O adminer.php https://www.adminer.org/static/download/4.8.1/adminer-4.8.1.php
+
+
+4. Tạo file config nginx
+  -> sudo vi /etc/nginx/sites-enabled/adminer
+
+server {
+    listen 80;
+    listen [::]:80;
+
+    root /var/www/adminer;
+    index adminer.php;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php8.1-fpm.sock; # Điều chỉnh đường dẫn và phiên bản PHP tương ứng
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+}
+
+5. Link sang file sites-available ( tuỳ chọn nếu  sites-available được nginx.conf dùng )
+   -> sudo ln -s /etc/nginx/sites-enabled/adminer.conf /etc/nginx/sites-available/ 
+
+6. Verify và restart nginx
+   -> sudo nginx -t
+   -> sudo systemctl restart nginx
+
