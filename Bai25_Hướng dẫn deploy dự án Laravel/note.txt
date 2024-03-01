@@ -154,3 +154,7 @@ Xem đã lên chưa : http://server_domain_or_IP
 
 
 
+---------------------------------
+ Check logs: tail -f /storage/logs/laravel.log
+
+
