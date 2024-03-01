@@ -1,0 +1,156 @@
+
+Link: 
+  + https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-laravel-with-nginx-on-ubuntu-22-04
+  + https://laravel.com/docs/10.x/deployment
+
+
+1. Update ubuntu 
+   -> sudo apt update
+
+2. Thêm thư viện 
+   -> sudo apt install php-mbstring php-xml php-bcmath php-curl
+   -> sudo apt install php8.1-fpm  ( chú ý nếu thiếu không chạy được)
+
+3. Tạo mysql
+   -> sudo mysql
+   -> CREATE DATABASE travellist; 
+   -> CREATE USER 'travellist_user'@'%' IDENTIFIED WITH mysql_native_password BY 'Password@123';  // tạo user
+   -> GRANT ALL ON travellist.* TO 'travellist_user'@'%';  // phần quyền 
+
+4. Connect database cmd 
+   -> mysql -u travellist_user -p
+   -> SHOW DATABASES;
+
+5. Tạo database
+    CREATE TABLE travellist.places (
+        id INT AUTO_INCREMENT,
+        name VARCHAR(255),
+        visited BOOLEAN,
+        PRIMARY KEY(id)
+    );
+    INSERT INTO travellist.places (name, visited) 
+    VALUES ("Tokyo", false),
+    ("Budapest", true),
+    ("Nairobi", false),
+    ("Berlin", true),
+    ("Lisbon", true),
+    ("Denver", false),
+    ("Moscow", false),
+    ("Olso", false),
+    ("Rio", true),
+    ("Cincinnati", false),
+    ("Helsinki", false);
+
+    -> SELECT * FROM travellist.places;
+
+6. Tạo project 
+  -> cd ~
+  -> composer create-project --prefer-dist laravel/laravel travellist
+  -> vi .env
+
+    APP_NAME=TravelList
+    APP_ENV=development
+    APP_KEY=APPLICATION_UNIQUE_KEY_DONT_COPY
+    APP_DEBUG=true
+    APP_URL=http://domain_or_IP
+
+    LOG_CHANNEL=stack
+
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=travellist
+    DB_USERNAME=travellist_user
+    DB_PASSWORD=password
+
+7. Di chuyển thư mục 
+  -> sudo mv ~/travellist /var/www/travellist
+
+8. Thêm quyền
+  sudo chown -R www-data.www-data /var/www/travellist/storage
+  sudo chown -R www-data.www-data /var/www/travellist/bootstrap/cache
+
+9. Thêm config nginx 
+  -> sudo vi /etc/nginx/sites-enabled/travellist
+
+( Link : https://laravel.com/docs/10.x/deployment )
+server {
+    listen 80;
+    listen [::]:80;
+    server_name example.com;
+    root /srv/example.com/public;
+ 
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-Content-Type-Options "nosniff";
+ 
+    index index.php;
+ 
+    charset utf-8;
+ 
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+ 
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+ 
+    error_page 404 /index.php;
+ 
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+ 
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+}
+
+
+10. Link sang file sites-available ( không cần thiết nếu nginx dùng file sites-enabled)
+  -> sudo ln -s /etc/nginx/sites-available/travellist /etc/nginx/sites-enabled/
+
+11. Verify
+  -> sudo nginx -t
+  -> sudo systemctl reload nginx
+
+Xem đã lên chưa : http://server_domain_or_IP
+
+12. Thêm route connect db 
+    -> sudo vi routes/web.php
+
+    Route::get('/', function () {
+        $visited = DB::select('select * from places where visited = ?', [1]);	
+        $togo = DB::select('select * from places where visited = ?', [0]);
+
+        return view('travellist', ['visited' => $visited, 'togo' => $togo ] );
+    });
+
+    ->vi resources/views/travellist.blade.php
+
+<html>
+<head>
+	<title>Travel List</title>
+</head>
+
+<body>
+	<h1>My Travel Bucket List</h1>
+	<h2>Places I'd Like to Visit</h2>
+	<ul>
+	  @foreach ($togo as $newplace)
+		<li>{{ $newplace->name }}</li>
+	  @endforeach
+	</ul>
+
+	<h2>Places I've Already Been To</h2>
+	<ul>
+          @foreach ($visited as $place)
+                <li>{{ $place->name }}</li>
+          @endforeach
+	</ul>
+</body>
+</html>
+
+
+
