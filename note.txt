@@ -6,3 +6,7 @@ Lưu ý:
  3. Server SSH online
    -> https://app.shellngn.com/
    -> https://ssheasy.com/
+
+ 4. Xem logs nginx 
+   tail -f /var/log/nginx/access.log
+   tail -f /var/log/nginx/error.log

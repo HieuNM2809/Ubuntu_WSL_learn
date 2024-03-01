@@ -52,6 +52,11 @@ Link doc: https://phoenixnap.com/kb/install-nginx-ubuntu-22-04
 12. restart lại server
    sudo systemctl restart nginx
 
+
+13. Xem logs nginx 
+   tail -f /var/log/nginx/access.log
+   tail -f /var/log/nginx/error.log
+
    
 
 
