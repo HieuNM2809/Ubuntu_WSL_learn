@@ -1,0 +1,79 @@
+
+Link : https://chat.openai.com/share/1998ca79-597e-4a59-b136-451d239b3a70a
+Link : https://www.npmjs.com/package/redis-commander
+
+
+1. Thêm thư viện redis commander
+   -> npm install -g redis-commander
+
+2. Khởi động dưới local
+   -> redis-commander                            : khởi động, mặc định chạy port 8081                    
+   -> redis-commander --redis-password password  : khởi động với mật khẩu
+
+3. tạo file config nginx 
+   -> sudo vi /etc/nginx/sites-enabled/redis-commander
+
+server {
+    listen 80;
+    server_name your_domain.com;
+
+    location / {
+        proxy_pass http://localhost:8081;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+
+4. Tuỳ chọn: link vào file sites-available nếu trong file nginx.conf dùng 
+   -> sudo ln -s /etc/nginx/sites-enabled/redis-commander /etc/nginx/sites-available/
+
+5. Verify và resatart nginx
+   -> sudo nginx -t
+   -> sudo systemctl restart nginx
+
+6. Cài pm2 để quản lý và cho redis-commander luôn chạy 
+  -> npm install -g pm2
+  -> pm2 start redis-commander -- --redis-password password
+  -> pm2 startup systemd
+  -> sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u <USER của mình> --hp /home/<USER của mình>
+  -> pm2 save
+
+7. Bây giờ bạn đã tạo một đơn vị systemd chạy pm2 cho người dùng của bạn khi khởi động. pm2 Lần lượt, trường hợp này chạy hello.js.
+  -> sudo systemctl start pm2-<USER của mình>
+  -> systemctl status pm2-<USER của mình>
+  -> pm2 status
+
+8. Thêm xác thực khi vào trang 
+   -> sudo htpasswd -c /etc/nginx/.htpasswd username
+
+server {
+    listen 80;
+    server_name your_domain.com;
+
+    location / {
+        auth_basic "Restricted Access";
+        auth_basic_user_file /etc/nginx/.htpasswd;
+        proxy_pass http://localhost:8081;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+   -> sudo nginx -t
+   -> sudo systemctl restart nginx
+
+
+
+ 
+
+
+
+
+
+
+

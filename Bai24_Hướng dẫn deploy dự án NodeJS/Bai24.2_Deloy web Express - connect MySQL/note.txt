@@ -25,7 +25,7 @@ Link video:
    -> sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u <USER của mình> --hp /home/<USER của mình>
    -> pm2 save
 
-7. Bây giờ bạn đã tạo một đơn vị systemd chạy pm2cho người dùng của bạn khi khởi động. pm2Lần lượt, trường hợp này chạy hello.js.
+7. Bây giờ bạn đã tạo một đơn vị systemd chạy pm2 cho người dùng của bạn khi khởi động. pm2 Lần lượt, trường hợp này chạy hello.js.
     sudo systemctl start pm2-<USER của mình>
     systemctl status pm2-<USER của mình>
 
