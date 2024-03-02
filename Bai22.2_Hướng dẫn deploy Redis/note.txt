@@ -1,0 +1,59 @@
+ 
+Link : https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-redis-on-ubuntu-22-04
+
+
+1. Update ubuntu
+  -> sudo apt update
+
+2. Cài redis 
+  -> sudo apt install redis-server
+
+3. Đổi init hệ thống quản lý thành "systemd"
+  -> sudo nano /etc/redis/redis.conf
+supervised systemd
+
+4. Restart lại redis
+  -> sudo systemctl restart redis.service
+
+5. Kiểm tra trạng thái & disable
+  -> sudo systemctl status redis
+  -> sudo systemctl disable redis  : config để khi khởi động server redis không tự chạy 
+
+6. Check thao tác redis 
+  -> redis-cli
+  -> ping   
+  -> set test "It's working!"
+  -> get test
+  -> exit
+
+7. Kiểm tra khi redis dừng server thì nó có lưu ko?
+   -> sudo systemctl restart redis
+   -> redis-cli
+   -> get test
+   => Có lưu
+   -> exit
+
+8. Chỉ cho localhost connect 
+   -> sudo vi /etc/redis/redis.conf
+. . .
+bind 127.0.0.1 ::1
+. . .
+
+9. Restart lại redis 
+   -> sudo systemctl restart redis
+
+10 . Check xem config đã apply chưa? 
+   -> sudo netstat -lnp | grep redis    ( nếu chưa cài netstat =>  sudo apt install net-tools )
+
+11. cấu hình mật khẩu redis 
+  -> sudo vi /etc/redis/redis.conf  ( Mẹo: có thể dùng cmd để random password : openssl rand 60 | openssl base64 -A )
+. . .
+# requirepass password_new  
+. . .
+
+11. Connect redis-cli lại
+  -> sudo systemctl restart redis.service
+  -> redis-cli
+  -> set key1 10
+  => (error) NOAUTH Authentication required.
+  -> auth your_redis_password
