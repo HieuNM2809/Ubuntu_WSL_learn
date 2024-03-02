@@ -2,6 +2,7 @@
 Link: 
   + https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-laravel-with-nginx-on-ubuntu-22-04
   + https://laravel.com/docs/10.x/deployment
+  + https://bagisto.com/en/how-to-use-redis-with-laravel/
 
 
 1. Update ubuntu 
@@ -151,6 +152,43 @@ Xem đã lên chưa : http://server_domain_or_IP
 	</ul>
 </body>
 </html>
+
+13. Connect redis
+  ->  vi .env
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=pass
+REDIS_PORT=6379
+
+14. Thêm thư viện redis 
+   -> composer require predis/predis  
+
+'redis' => [
+    'client' => 'predis',
+    'default' => [
+      'host' => env('REDIS_HOST', '127.0.0.1'),
+      'password' => env('REDIS_PASSWORD', null),
+      'port' => env('REDIS_PORT', 6379),
+      'database' => env('REDIS_DB', 0),
+    ],
+    'cache' => [
+      'host' => env('REDIS_HOST', '127.0.0.1'),
+      'password' => env('REDIS_PASSWORD', null),
+      'port' => env('REDIS_PORT', 6379),
+      'database' => env('REDIS_CACHE_DB', 0),
+    ],
+],
+
+15. Thêm route test 
+
+Route::get('/redis/get/{key}', function (Request $request, $key) {
+    $user = Redis::get('user:profile:' . $key);
+    return response()->json(['user' => $user]);
+});
+Route::get('/redis/set/{key}', function (Request $request, $key) {
+    $resut = Redis::set("user:profile:".$key, 'Webkul');
+    return response()->json(['result' => $resut]);
+});
 
 
 
