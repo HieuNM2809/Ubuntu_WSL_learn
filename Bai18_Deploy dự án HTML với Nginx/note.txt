@@ -38,7 +38,7 @@ Link doc: https://phoenixnap.com/kb/install-nginx-ubuntu-22-04
             root /var/www/tiktok/html;
             index index.html index.htm index.nginx-debian.html;
 
-            server_name 14.225.192.68;
+            server_name 14.225.206.20;
 
             location / {
                 try_files $uri $uri/ =404;

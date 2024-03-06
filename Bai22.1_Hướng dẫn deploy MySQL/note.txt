@@ -47,3 +47,8 @@ Link video: https://www.digitalocean.com/community/tutorials/how-to-install-mysq
 
 11. show các thông tin về acc 
    -> sudo mysqladmin -p -u <user của mình> version
+
+
+
+
+Lưu ý : sudo systemctl restart mysql : restart lại mysql
