@@ -52,3 +52,20 @@ Link video: https://www.digitalocean.com/community/tutorials/how-to-install-mysq
 
 
 Lưu ý : sudo systemctl restart mysql : restart lại mysql
+
+
+
+
+--------------- Các lệnh quản lý MySQL ------
+Dừng dịch vụ MySQL:
+-> sudo systemctl stop mysql
+
+Khởi động lại dịch vụ MySQL:
+-> sudo systemctl restart mysql
+
+Kiểm tra trạng thái của dịch vụ MySQL:
+-> sudo systemctl status mysql
+
+Đối với lệnh restart, bạn có thể sử dụng:
+-> sudo systemctl restart mysql
+
