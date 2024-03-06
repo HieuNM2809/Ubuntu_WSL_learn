@@ -57,3 +57,19 @@ bind 127.0.0.1 ::1
   -> set key1 10
   => (error) NOAUTH Authentication required.
   -> auth your_redis_password
+
+
+
+--------------- Các lệnh quản lý Redis ------
+
+Dừng dịch vụ Redis:
+-> sudo systemctl stop redis
+
+Khởi động lại dịch vụ Redis:
+-> sudo systemctl restart redis
+
+Kiểm tra trạng thái của dịch vụ Redis:
+-> sudo systemctl status redis
+
+Restart lại dịch vụ Redis (nếu đã dừng):
+-> sudo systemctl restart redis
