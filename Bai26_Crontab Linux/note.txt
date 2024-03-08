@@ -27,7 +27,7 @@ nhưng vì hầu hết chúng ta đều là người dùng không phải root n�
 -> * * * * * php /var/www/travellist/artisan schedule:run >> /dev/null 2>&1
 
 4. restart
-   ->  sudo systemctl cron restart || sudo systemctl restart cron
+   ->  sudo systemctl restart cron
 
 5. Cron laravel
    -> php artisan make:command InsertDatabaseCommand
