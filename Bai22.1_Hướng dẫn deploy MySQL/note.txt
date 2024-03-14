@@ -58,7 +58,10 @@ Lưu ý : sudo systemctl restart mysql : restart lại mysql
 
 --------------- Các lệnh quản lý MySQL ------
 Dừng dịch vụ MySQL:
--> sudo systemctl stop mysql
+-> sudo systemctl stop mysql, sudo service mysql stop
+
+Bắt đầu dịch vụ MySQL:
+-> sudo systemctl start  mysql, sudo service mysql start
 
 Khởi động lại dịch vụ MySQL:
 -> sudo systemctl restart mysql
