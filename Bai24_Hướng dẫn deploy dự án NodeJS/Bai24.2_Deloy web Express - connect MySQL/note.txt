@@ -65,3 +65,6 @@ pm2 info app_name
 
 Trình giám sát quá trình PM2 có thể được kéo lên bằng monitlệnh phụ. Điều này hiển thị trạng thái ứng dụng, CPU và mức sử dụng bộ nhớ:
 pm2 monit
+
+Xem logs pm2 
+pm2 logs videoCall
