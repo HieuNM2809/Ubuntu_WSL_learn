@@ -1,0 +1,32 @@
+Link doc: 
+    https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-22-04
+    https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-22-04
+
+
+1. Check đã cài Java chưa
+   -> sudo apt update
+   -> java -version
+
+2. Cài Java 
+   -> sudo apt install default-jre
+   -> java -version
+
+3. Cài JDK 
+   -> sudo apt install default-jdk
+   -> javac -version
+
+4. Quản lý Java ( có thể cài nhiều Java trên máy chủ )
+   -> sudo update-alternatives --config java        : Lưu ý nếu chạy ko đc thì chạy -> sudo apt -y install openjdk-11-jdk (it's Java 14.0.1)     : cài thư viện 
+   -> sudo update-alternatives --config javac
+
+5. Đặt biến môi trường 
+   -> sudo vi /etc/environment
+   -> Thêm : JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"    : tuỳ vào phiên bản chỉnh path cho đúng
+   -> source /etc/environment
+   -> echo $JAVA_HOME                                          : xem đúng config chưa?
+
+6. Cài đặt Jenkins
+   -> wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -                         : Thêm khoá 
+   -> sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'      : Thêm gói Debian vào sources.list
+   -> sudo apt update
+   -> sudo apt install jenkins  
