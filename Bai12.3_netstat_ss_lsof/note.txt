@@ -1,0 +1,32 @@
+1. Sử dụng netstat: (Network Statistics)
+Sử dụng lệnh netstat để hiển thị tất cả các kết nối mạng và các cổng đang được sử dụng:
+
+    sudo netstat -tuln
+        -t: hiển thị các kết nối TCP.
+        -u: hiển thị các kết nối UDP.
+        -l: chỉ hiển thị các cổng lắng nghe (listening).
+        -n: hiển thị số cổng dưới dạng số (không phân giải tên miền).
+=> Kết quả sẽ liệt kê các cổng và địa chỉ IP mà chúng đang lắng nghe.
+
+
+
+------------------------------------------------------------------------------------------------
+2. Sử dụng lệnh ss (Socket Statistics):
+Lệnh ss cung cấp thông tin chi tiết hơn và nhanh hơn so với netstat:
+
+    sudo ss -tuln
+        -t: chỉ hiển thị các kết nối TCP.
+        -u: chỉ hiển thị các kết nối UDP.
+        -l: chỉ hiển thị các cổng lắng nghe (listening).
+        -n: hiển thị số cổng dưới dạng số (không phân giải tên miền).
+Lấy danh sách các tiến trình đang lắng nghe
+
+------------------------------------------------------------------------------------------------
+
+3. Sử dụng lsof (List Open Files):
+
+    sudo lsof -i -P -n | grep LISTEN
+        -i: chỉ hiển thị các kết nối mạng.
+        -P: không phân giải tên miền.
+        -n: hiển thị số cổng dưới dạng số (không phân giải tên miền).
+=> Lệnh này sẽ liệt kê tất cả các tiến trình đang lắng nghe trên các cổng.
