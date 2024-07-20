@@ -1,0 +1,7 @@
+1. Screen linux
+Screen là một chương trình quản lý các phiên làm việc trong terminal trên hệ điều hành Unix/Linux. 
+Nó cho phép bạn mở nhiều terminal ảo bên trong một cửa sổ terminal duy nhất,
+có thể ngắt kết nối và kết nối lại với các phiên làm việc này.
+
+
+https://nguyenminhhieu.notion.site/Screen-Linux-dd8e01a4c31740f29d0596954030b542?pvs=4
