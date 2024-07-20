@@ -1,0 +1,50 @@
+
+1. Update server ubuntu 
+   -> sudo apt-get update
+   -> sudo apt-get install supervisor
+
+
+2. Thêm file chạy supervisor
+   -> sudo vi /etc/supervisor/conf.d/my_app.conf
+
+[program:my_app]
+command=/usr/bin/python /path/to/your/app.py ;                  Lệnh để chạy ứng dụng
+directory=/path/to/your/app ;                                   Thư mục làm việc của ứng dụng
+autostart=true ;                                                Tự động khởi động khi Supervisor khởi động
+autorestart=true ;                                              Tự động khởi động lại khi ứng dụng bị lỗi
+user=www-data ;                                                 Người dùng chạy ứng dụng (nếu cần)
+stderr_logfile=/var/log/my_app.err.log ;                        Tệp nhật ký lỗi
+stdout_logfile=/var/log/my_app.out.log ;                        Tệp nhật ký tiêu chuẩn
+        
+Ví dụ :
+[program:my-nodejs-app]
+command=node app.js
+directory=/path/to/your/project/directory/my-nodejs-app
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/my-nodejs-app.err.log
+stdout_logfile=/var/log/my-nodejs-app.out.log
+user=your_username  ; Thay your_username bằng tên người dùng của bạn
+
+3. Restart 
+    -> sudo supervisorctl reread
+    -> sudo supervisorctl update
+    -> sudo systemctl restart supervisor
+
+4. Check status 
+    -> sudo supervisorctl status
+
+
+
+
+------------------  Các lệnh quản lý Supervisor -----------------
+
+sudo supervisorctl tail <tên_chương_trình> <số_dòng>       : Check logs   
+sudo supervisorctl                                         : Mở giao diện dòng lệnh của Supervisor
+sudo supervisorctl version                                 : Hiển thị phiên bản Supervisor
+sudo supervisorctl status my_app                           : Trạng thái của app hoặc của supervisor
+sudo supervisorctl start my_app                            : Khởi chạy
+sudo supervisorctl stop my_app                             : Dừng
+sudo supervisorctl restart my_app                          : Restart
+sudo supervisorctl clear my_app                            : Xoá
+ 
