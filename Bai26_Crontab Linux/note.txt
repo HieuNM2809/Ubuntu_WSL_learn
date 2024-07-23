@@ -22,7 +22,7 @@ https://www.digitalocean.com/community/questions/cron-jobs-with-laravel-on-ubunt
 - User 
    -> crontab -e            : config user hiện tại
    -> crontab -e -u hieunm  : config user chỉ định
-Lưu ý: Nếu bạn là người dùng root, bạn có thể chỉnh sửa /etc/crontabtệp để thiết lập các tác vụ,
+Lưu ý: Nếu bạn là người dùng root, bạn có thể chỉnh sửa /etc/crontab tệp để thiết lập các tác vụ,
 nhưng vì hầu hết chúng ta đều là người dùng không phải root nên việc sử dụng một giải pháp thay thế khác là phù hợp.
 -> * * * * * php /var/www/travellist/artisan schedule:run >> /dev/null 2>&1
 
