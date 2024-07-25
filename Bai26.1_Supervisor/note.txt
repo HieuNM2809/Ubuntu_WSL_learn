@@ -29,7 +29,7 @@ user=your_username  ; Thay your_username bằng tên người dùng của bạn
 3. Restart 
     -> sudo supervisorctl reread
     -> sudo supervisorctl update
-    -> sudo systemctl restart supervisor
+    -> sudo systemctl restart supervisor  hoặc sudo systemctl restart supervisord
 
 4. Check status 
     -> sudo supervisorctl status
