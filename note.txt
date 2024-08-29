@@ -10,3 +10,5 @@ Lưu ý:
  4. Xem logs nginx 
    tail -f /var/log/nginx/access.log
    tail -f /var/log/nginx/error.log
+
+https://explainshell.com/explain
