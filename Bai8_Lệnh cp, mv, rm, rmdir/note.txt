@@ -18,6 +18,7 @@ Link document : https://www.hostinger.com/tutorials/linux-commands
 -> Xoá file
    rm file.html               : xoá file 
    rm -r folder/              : recursive - xoá file và thư mục
+   sudo rm -rf *.xlsx         : [IMPORTANT] Xoá các file dạng excel 
 
 4. rmdir : remove directory
 -> Xoá thư mục trống
