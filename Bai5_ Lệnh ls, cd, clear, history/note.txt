@@ -14,6 +14,9 @@ Link document : https://www.hostinger.com/tutorials/linux-commands
 
 3. clear (xoá đi các nội dung đang hiển thị trên ternial)
 
+4. history 
+-> Danh sách các lệnh đã dùng trước đó
+
 
 
 
