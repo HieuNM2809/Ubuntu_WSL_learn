@@ -17,6 +17,11 @@ Link document : https://www.hostinger.com/tutorials/linux-commands
 4. history 
 -> Danh sách các lệnh đã dùng trước đó
 
+5. rename server 
+-> Đổi tên máy tính
+   vi /etc/hostname    (xong rồi reboot lại pc)
+
+
 
 
 
