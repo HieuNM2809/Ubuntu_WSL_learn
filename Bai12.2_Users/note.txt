@@ -13,3 +13,6 @@
 
 4. Get list Users
    cut -d: -f1 /etc/passwd
+
+5. Xem list user hiện tại
+   vi /etc/passwd
